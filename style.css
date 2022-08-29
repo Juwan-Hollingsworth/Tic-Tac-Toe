@@ -1,8 +1,12 @@
+.App_bg {
+  background-color: #eeeeee;
+}
+
 /* Style the squares in td */
 td {
-  border: 2px solid black;
-  height: 100px;
-  width: 100px;
+  border: 2px solid orange;
+  height: 200px;
+  width: 200px;
   text-align: center;
   vertical-align: middle;
   font-family: "Courier New", Courier, monospace;
@@ -14,7 +18,7 @@ table {
   border-collapse: collapse;
   position: absolute;
   left: 50%;
-  margin-left: -155px;
+  margin-left: -310px;
   top: 50px;
 }
 
@@ -46,4 +50,15 @@ table tr td:last-child {
   border-radius: 5px;
   color: white;
   font-size: 2em;
+}
+
+.resetBtn {
+  color: rgb(78, 77, 77);
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
