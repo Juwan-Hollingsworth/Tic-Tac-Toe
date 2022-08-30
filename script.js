@@ -36,10 +36,17 @@ function startGame() {
 }
 
 function turnClick(square) {
-  // calls another (fx)
-  //pass in square ID & human player
-  // turn f(x) can be called by ai or human
-  turn(square.target.id, humanPlayer);
+  if (typeof originalBoard[square.target.id] == "number") {
+    //if the square idx that was clicked is = to a # then the human or ai has not played it
+
+    // calls another (fx)
+    //pass in square ID & human player
+    // turn f(x) can be called by ai or human
+    turn(square.target.id, humanPlayer);
+    //check if a tie - no avail spots - no wins
+    //@bestSpot() return best square to click
+    if (!checkTie()) turn(bestSpot(), aiPlayer);
+  }
 }
 
 //@squareID - current square
@@ -87,4 +94,35 @@ function gameOver(gameWon) {
   for (let i = 0; i < squares.length; i++) {
     squares[i].removeEventListener("click", turnClick, false);
   }
+
+  declareWinner(gameWon.player == humanPlayer ? "you win" : "you lose");
+}
+
+function declareWinner(who) {
+  document.querySelector(".endGame").style.display = "block";
+  document.querySelector(".endGame.text").innerText = who;
+}
+
+function bestSpot() {
+  //first empty square elem
+  return emptySquares()[0];
+}
+function emptySquares() {
+  return originalBoard.filter((s) => typeof s == "number");
+}
+
+function bestSpot() {
+  return emptySquares()[0];
+}
+function checkTie() {
+  //if length = 0 and no one has won then it is a tie
+  if (emptySquares().length == 0) {
+    for (let i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = "green";
+      squares[i].removeEventListener("click", turnClick, false);
+    }
+    declareWinner("Tie Game!");
+    return true;
+  }
+  return false;
 }
