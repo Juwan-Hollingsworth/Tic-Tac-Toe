@@ -4,12 +4,12 @@
 
 /* Style the squares in td */
 td {
-  border: 2px solid orange;
+  border: 2px solid rgb(43, 43, 43);
   height: 200px;
   width: 200px;
   text-align: center;
   vertical-align: middle;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Orbitron", sans-serif;
   font-size: 70px;
   cursor: pointer;
 }
@@ -61,4 +61,15 @@ table tr td:last-child {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.title {
+  font-family: "Orbitron", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+.game_Info {
+  font-family: "Orbitron", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
 }

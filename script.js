@@ -81,7 +81,7 @@ function gameOver(gameWon) {
   // highlight all squares in winning combo
   for (let index of winningCombos[gameWon.index]) {
     document.getElementById(index).style.backgroundColor =
-      gameWon.player == humanPlayer ? "blue" : "red";
+      gameWon.player == humanPlayer ? "#12c2f1" : "#f72d05";
   }
   //go thru every square and make it unclickable
   for (let i = 0; i < squares.length; i++) {
